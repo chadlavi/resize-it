@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>resize test</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="./resize.css">
+  <style>
+  #resizable { width: 150px; height: 150px; padding: 0.5em; }
+  #resizable h3 { text-align: center; margin: 0; }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "tr#row1>td.resizable" ).resizable({
+      containment: "tr#row1",
+      minHeight: $("tr#row1").height(),
+      resize: function(event,ui){
+        if(ui.size.height > $("tr#row1").height()){
+            ui.size.height = $("tr#row1").height();
+        }
+      },
+      autohide: true
+    });
+    $( "tr#row2>td.resizable" ).resizable({
+      containment: "tr#row2",
+      minHeight: $("tr#row2").height(),
+      autohide: true
+    });
+    $( "tr#row3>td.resizable" ).resizable({
+      containment: "tr#row3",
+      minHeight: $("tr#row3").height(),
+      autohide: true
+    });
+    $( "tr.resizable" ).resizable({
+      containment: "table",
+      autohide: true
+    });
+  } );
+  </script>
+</head>
+<body>
+  <table class="">
+    <tr id="row1" class="resize-container resizable">
+      <td id="" class="resizable ui-widget-content">
+        <img src="https://unsplash.it/400/400"/>
+      </td>
+      <td id="" class="resizable ui-widget-content">
+        <img src="https://unsplash.it/1203/400"/>
+      </td>
+      <td id="" class="resizable ui-widget-content">
+        <img src="https://unsplash.it/400/403"/>
+      </td>
+    </tr>
+    <tr id="row2" class="resize-container resizable">
+      <td id="" class="resizable ui-widget-content">
+        <img src="https://unsplash.it/1200/400"/>
+      </td>
+      <td id="" class="resizable ui-widget-content">
+        <img src="https://unsplash.it/405/400"/>
+      </td>
+      <td id="" class="resizable ui-widget-content">
+        <img src="https://unsplash.it/401/403"/>
+      </td>
+    </tr>
+    <tr id="row3" class="resize-container resizable">
+      <td id="" class="resizable ui-widget-content">
+        <img src="https://unsplash.it/404/400"/>
+      </td>
+      <td id="" class="resizable ui-widget-content">
+        <img src="https://unsplash.it/402/420"/>
+      </td>
+      <td id="" class="resizable ui-widget-content">
+        <img src="https://unsplash.it/410/403"/>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
